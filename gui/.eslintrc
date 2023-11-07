@@ -1,0 +1,12 @@
+{
+  "extends": ["react-app", "plugin:react/recommended"],
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-no-bind": ["error", {"ignoreRefs": false}],
+
+    "no-console": ["warn", {"allow": ["info", "warn", "error"]}],
+
+    "vars-on-top": "warn"
+  }
+}
