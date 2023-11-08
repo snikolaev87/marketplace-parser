@@ -2,10 +2,9 @@
   "name": "marketplace-parser-gui",
   "private": true,
   "scripts": {
-    "frontend:build": "npm run clean && npm run build:prod && npm run build:dev",
-    "build:dev": "webpack --config=webpack.config.js --mode=development",
-    "build:prod": "webpack --config=webpack.config.js --mode=production",
-    "clean": "rimraf src/main/resources/webpack-bundle",
+    "build:dev": "npm run clean && webpack --config=webpack.config.js --mode=development",
+    "build:prod": "npm run clean && webpack --config=webpack.config.js --mode=production",
+    "clean": "rimraf src/main/resources/js",
     "sync": "browser-sync start --config=bs-config.js"
   },
   "dependencies": {

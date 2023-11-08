@@ -1,0 +1,39 @@
+#actionZone {
+    display: grid;
+    grid-row-gap: 1em;
+}
+
+#itemUrl {
+    height: 2em;
+    font-size: 14px;
+}
+
+#actionButton {
+    width: 15em;
+    height: 3em;
+    background: deepskyblue;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#itemInfo {
+    display: grid;
+    row-gap: 0.3em;
+    grid-template-columns: 10em auto;
+}
+
+#itemWrapper {
+    display: none;
+    margin-top: 1em;
+
+}
+
+#errorWrapper {
+    display: none;
+    margin-top: 1em;
+}
+
+#errorMessage {
+    color: red
+}

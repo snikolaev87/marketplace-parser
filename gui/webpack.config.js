@@ -14,7 +14,7 @@ module.exports = (_, { mode }) => {
             path: path.resolve(ROOT, "src/main/resources/js/"),
             library: PKG.name,
             libraryTarget: "umd",
-            filename: PKG.name + (isDevelopment ? ".debug.js" : ".js"),
+            filename: PKG.name + ".js",
         },
         devtool: isDevelopment ? "eval-cheap-module-source-map" : false,
         module: {

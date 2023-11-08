@@ -20,26 +20,8 @@
     <modules>
         <module>app-server</module>
         <module>gui</module>
+        <module>parse-engine</module>
+        <module>distribution</module>
     </modules>
-
-    <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.seleniumhq.selenium</groupId>-->
-<!--            <artifactId>selenium-java</artifactId>-->
-<!--            <version>${selenium-version}</version>-->
-<!--        </dependency>-->
-    </dependencies>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.6.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 
 </project>
