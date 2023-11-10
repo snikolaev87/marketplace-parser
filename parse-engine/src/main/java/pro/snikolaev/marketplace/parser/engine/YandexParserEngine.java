@@ -8,21 +8,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * Парсер данных с wildberries.
+ * Парсер данных с яндексмаркета.
  */
-public class WildberriesParserEngine extends SeleniumParserEngine {
+public class YandexParserEngine extends SeleniumParserEngine {
 
-    public WildberriesParserEngine(String url, WebDriver webDriver) {
+    public YandexParserEngine(String url, WebDriver webDriver) {
         super(url, webDriver);
     }
 
     @Override
     public Map<String, String> parse() {
         webDriver.get(url);
-        WebElement itemCardHeader = webDriver.findElement(By.className("product-page__header"));
-        WebElement nameElement = itemCardHeader.findElement(By.tagName("h1"));
-        WebElement priceElement = webDriver.findElement(By.className("price-block__final-price"));
-        WebElement sellerElement = webDriver.findElement(By.className("seller-info__name"));
+        WebElement priceElement = webDriver.findElement(By.xpath("//*[@data-auto='snippet-price-current']"));
+        WebElement nameElement = webDriver.findElement(By.xpath("//*[@data-auto='productCardTitle']"));
+        WebElement sellerElement = webDriver.findElement(By.xpath("//div[@data-walter-collection='supplierName']"));
         String name = getTextFromElement(nameElement);
         String price = sanitizePrice(getTextFromElement(priceElement));
         String seller = getTextFromElement(sellerElement);
@@ -34,4 +33,6 @@ public class WildberriesParserEngine extends SeleniumParserEngine {
         data.put("seller", seller);
         return data;
     }
+
+
 }

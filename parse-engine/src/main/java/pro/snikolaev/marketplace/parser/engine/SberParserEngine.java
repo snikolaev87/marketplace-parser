@@ -8,21 +8,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
- * Парсер данных с wildberries.
+ * Парсер данных со сбермегамаркета.
  */
-public class WildberriesParserEngine extends SeleniumParserEngine {
+public class SberParserEngine extends SeleniumParserEngine {
 
-    public WildberriesParserEngine(String url, WebDriver webDriver) {
+    public SberParserEngine(String url, WebDriver webDriver) {
         super(url, webDriver);
     }
 
     @Override
     public Map<String, String> parse() {
         webDriver.get(url);
-        WebElement itemCardHeader = webDriver.findElement(By.className("product-page__header"));
-        WebElement nameElement = itemCardHeader.findElement(By.tagName("h1"));
-        WebElement priceElement = webDriver.findElement(By.className("price-block__final-price"));
-        WebElement sellerElement = webDriver.findElement(By.className("seller-info__name"));
+        WebElement priceElement = webDriver.findElement(By.className("sales-block-offer-price__price-final"));
+        WebElement nameElement = webDriver.findElement(By.className("pdp-header__title_only-title"));
+        WebElement sellerElement = findElementByClassNames(
+                "pdp-offer-block__merchant-link", "pdp-merchant-rating-block__merchant-name");
         String name = getTextFromElement(nameElement);
         String price = sanitizePrice(getTextFromElement(priceElement));
         String seller = getTextFromElement(sellerElement);

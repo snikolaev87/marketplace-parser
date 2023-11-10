@@ -15,7 +15,7 @@ export default function HomePage(props) {
         document.getElementById("errorWrapper").style.display="none";
         document.getElementById('parsingOverlay').style.visibility = 'visible';
         const url = document.getElementById("itemUrl").value;
-        let response = await fetch('/parse', {
+        let response = await fetch('action/parse', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -26,9 +26,9 @@ export default function HomePage(props) {
         });
         let result = await response.json();
         document.getElementById('parsingOverlay').style.visibility = 'hidden';
-        let error = result.error;
-        if (error) {
-            document.getElementById("errorMessage").textContent = error;
+        let isError = result.isError;
+        if (isError) {
+            document.getElementById("errorMessage").textContent = result.errorMessage;
             document.getElementById("errorWrapper").style.display="block";
         } else {
             document.getElementById("itemName").textContent = result.name;
